@@ -1,0 +1,43 @@
+import random
+
+print("Welcome to Snake, Water, Gun Game")
+print("Enter s for Snake, w for Water, g for Gun, e to Exit")
+
+youdict = {"s":1, "w":0, "g":-1}
+
+while True:
+    youstr = input("Enter your choice: ")
+    if youstr == "e":
+        print("Exiting Game!")
+        break
+    elif youstr not in youdict.keys():
+        print("Invalid Input! Try Again")
+        continue            
+
+    computer = random.choice([-1,0,1])
+    you = youdict[youstr]
+    reverseDict = {1:"Snake", 0:"Water", -1:"Gun"}
+    print(f"You chose: {reverseDict[you]} \nComputer chose: {reverseDict[computer]}")
+    
+    if(computer==you):
+        print("Its a Draw!")
+    else:
+        if(computer==1 and you==0):
+            print("You Lose!")
+        elif(computer==1 and you==-1):
+            print("You Win!")
+        elif(computer==0 and you==1):
+            print("You Win!")
+        elif(computer==0 and you==-1):
+            print("You Lose!")
+        elif(computer==-1 and you==0):
+            print("You Win!")
+        elif(computer==-1 and you==1):
+            print("You Lose!")
+
+    '''if(computer-you==1 or computer-you==-2):
+        print("Computer Wins!")
+    elif(computer-you==-1 or computer-you==2):
+        print("You Win!")
+    else:
+        print("Its a Draw!")'''
